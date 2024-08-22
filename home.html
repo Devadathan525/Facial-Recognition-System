@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Title</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+
+  <style>
+    body {
+    font-family: "Open Sans", sans-serif;
+  }
+  /*--------------------------------------------------------------
+  # Sections General
+  --------------------------------------------------------------*/
+  section {
+    margin-top: 8vh;
+    padding: 60px 0;
+    overflow: hidden;
+    /* height: 90vh; */
+  }
+  
+  .portfolio-details {
+    padding-top: 40px;
+  }
+
+  .portfolio-details .portfolio-info {
+    padding: 10px 30px;
+    box-shadow: 0px 0 30px rgba(42, 44, 57, 0.25);
+    height: 85vh;
+  }
+  /* .portfolio-info a{
+    padding: 10px 20px;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid black;;
+    text-decoration: none;
+    border-radius: 5px;
+    color: black;
+    font-size: 14px;
+    transition-property: background-color;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+    margin-bottom: 10px;
+  }
+  .portfolio-info a:hover{
+    color: white;
+    background-color: black;
+  } */
+  .portfolio-details .portfolio-info h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(188, 178, 178);
+  }
+
+  </style>
+
+</head>
+
+<body>
+  {% block content %}
+ 
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+          <a href="https://www.rrce.org/"><h3 style="color: white;">MS RAMAIAH UNIVERSITY OF APPLIED SCIENCES PROJECT BY RISHAL</h3></a>
+    </div>
+  </nav>
+
+  <main id="main">
+    
+    <section id="portfolio" class="portfolio-details">
+      <div class="container">
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Create Student Dataset</h3>
+              <form action="{% url 'create_datsets' %}" method="POST" >
+                {% csrf_token %}
+                <div class="form-group">
+                  <!-- <label for="Id"></label> -->
+                  <input type="number" class="form-control" id="Id" name="Id" placeholder="Student Id">
+                </div>
+                <div class="form-group">
+                  <!-- <label for="Name">:</label> -->
+                  <input type="text" placeholder="Student Name" class="form-control" id="Name" name="Name">
+                </div>
+                <div class="form-group">
+                  <!-- <label for="Phone">:</label> -->
+                  <input type="tel" placeholder="Phone No." class="form-control" id="Phone" name="Phone">
+                </div>
+                <div class="form-group">
+                  <!-- <label for="Email">:</label> -->
+                  <input type="email" placeholder="Email Id" class="form-control" id="Email" name="Email">
+                </div>
+                <div class="form-group">
+                  <!-- <label for="pwd">Semester:</label> -->
+                  <select name="Sem" id="Sem" class="form-control" required>
+                    <option value="">-- SELECT SEM --</option>
+                    <option value="1st">1st sem</option>
+                    <option value="2nd">2nd sem</option>
+                    <option value="3rd">3rd sem</option>
+                    <option value="4th">4th sem</option>
+                    <option value="5th">5th sem</option>
+                    <option value="6th">6th sem</option>
+                    <option value="7th">7th sem</option>
+                    <option value="8th">8th sem</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <!-- <label for="pwd">Branch:</label> -->
+                  <select name="Course" id="Course" class="form-control" required>
+                    <option value="">-- SELECT COURSE --</option>
+                    <option value="BSC">BSC</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <!-- <label for="pwd">Branch:</label> -->
+                  <select name="Branch" id="Branch" class="form-control" required>
+                    <option value="">-- select branch --</option>
+                    <option value="DSnA">DSnA</option>
+                    <option value="PSY">PSY</option>
+                    <option value="ECO">ECO</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>
+              <h3>Train Datasets</h3>
+              <a href="{% url 'training' %}"><button class="btn btn-default">Submit</button></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Create Professor Dataset</h3>
+              <form action="{% url 'create_datsets_hod' %}" method="POST" >
+                {% csrf_token %}
+                <div class="form-group">
+                  <!-- <label for="Id"></label> -->
+                  <input type="number" class="form-control" id="Id" name="Id" placeholder="Professor Id">
+                </div>
+                <div class="form-group">
+                  <!-- <label for="Name">:</label> -->
+                  <input type="text" placeholder="Professor Name" class="form-control" id="Name" name="Name">
+                </div>
+                <div class="form-group">
+                  <!-- <label for="Phone">:</label> -->
+                  <input type="tel" placeholder="Phone No." class="form-control" id="Phone" name="Phone">
+                </div>
+                <div class="form-group">
+                  <select name="Subject" id="Subject" class="form-control" required>
+                    <option value="">-- select subject --</option>
+                    <option value="SCM">SCM</option>
+                      <option value="DL">DL</option>
+                      <option value="PS">PROJECT/SEMINAR</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>
+              <h3>Train Datasets</h3>
+              <a href="{% url 'training_hod' %}"><button class="btn btn-default">Submit</button></a>
+             </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Take Attendence</h3>
+              <a href="{% url 'attendence' %}"><button class="btn btn-default">Submit</button></a>
+              
+              <h3>Updates</h3>
+              {% if msg %}
+              <h4>{{msg}}</h4>
+              {% endif %}
+
+              {% if List %}
+              <h4>Subject: {{ subject }}</h4>
+              <h4>Date: {{ date }}</h4>
+              <h4>Time: {{ time }}</h4>
+              {% for i in List %}
+              <p>{{i}}</p>
+              {% endfor %}
+              {% endif %}
+
+            </div>
+          </div>
+
+      </div>
+    </section>
+</main>
+{% endblock content %}
+</body>
+</html>
